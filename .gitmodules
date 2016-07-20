@@ -1,0 +1,3 @@
+[submodule "sub_mod/node_modules"]
+	path = sub_mod/node_modules
+	url = git@github.com:abierbaum/npm_deps_subdeps.git
