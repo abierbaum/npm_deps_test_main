@@ -1,0 +1,14 @@
+## Prep for Git commit
+
+Download modules without building them
+> npm install --ignore-scripts 
+> git add . && git commit -a   # Check in modules
+
+## Now rebuild the packages and find build files with git status
+
+Build the modules
+> npm rebuild                  
+# Show the files created by the build (there might not be any)
+> git status                   
+
+echo "
