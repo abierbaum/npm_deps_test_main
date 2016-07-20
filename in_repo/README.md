@@ -20,7 +20,7 @@ Download modules without building them
 > rm -rf node_modules
 > npm install --ignore-scripts 
 > git status #   see removed modules
-> git add . && git commit -a   # Check in modules
+> git add --all node_modules && git commit -a   # Check in modules
 
 ## Now rebuild the packages and find build files with git status
 
