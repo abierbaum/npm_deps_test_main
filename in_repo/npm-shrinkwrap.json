@@ -1198,11 +1198,6 @@
         }
       }
     },
-    "filesize": {
-      "version": "3.3.0",
-      "from": "filesize@3.3.0",
-      "resolved": "https://registry.npmjs.org/filesize/-/filesize-3.3.0.tgz"
-    },
     "fill-range": {
       "version": "2.2.3",
       "from": "fill-range@>=2.1.0 <3.0.0",

@@ -45,13 +45,23 @@ npm install with --save (or --save-dev) to updated those packages.
 
 Verify that this updated both package.json and npm-shrinkwrap.json.
 
+Similarly works for `npm uninstall`.
+
 ## Updating dependencies (package.json edit)
 
 Use outdated to check which package may need updated.  Then edit the package.json file to add a new one or update.
 
+Unlock
 > rm npm-shrinkwrap.json
+
+Install
+> npm install --ignore-scripts
+> npm shrinkwrap --dev
+> rm -rf node_modules
 > npm install --ignore-scripts
 > ... normal git stuff above
+
+Lock
 > npm shrinkwrap --dev   # Add the shrinkwrap file back in
 
 ## Future
