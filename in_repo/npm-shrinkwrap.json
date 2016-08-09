@@ -4665,7 +4665,7 @@
     },
     "vrsource-tslint-rules": {
       "version": "0.12.0",
-      "from": "vrsource-tslint-rules@>=0.12.0 <0.13.0"
+      "from": "vrsource-tslint-rules@0.12.0"
     },
     "watchpack": {
       "version": "0.2.9",
