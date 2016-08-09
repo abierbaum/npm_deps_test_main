@@ -68,3 +68,5 @@ Lock
 
 May want to use: https://github.com/uber/npm-shrinkwrap
 shrinking tarballs: https://github.com/JamieMason/shrinkpack
+Watch out for this bug: https://github.com/npm/npm/issues/6855
+
