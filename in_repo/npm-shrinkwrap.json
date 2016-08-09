@@ -2076,9 +2076,9 @@
       "resolved": "https://registry.npmjs.org/lockfile/-/lockfile-1.0.1.tgz"
     },
     "lodash": {
-      "version": "4.13.1",
-      "from": "lodash@4.13.1",
-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.13.1.tgz"
+      "version": "4.14.2",
+      "from": "lodash@4.14.2",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.14.2.tgz"
     },
     "lodash._arraycopy": {
       "version": "3.0.0",
