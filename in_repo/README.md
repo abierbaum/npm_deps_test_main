@@ -1,5 +1,11 @@
 ## Workflow
 
+Suggested workflow is to update the .npmrc file to save exact versions.  Then when you want to update a version of a package, remove the shrinkwrap file, do your work, then re-wrap it.
+
+It is possible to do this without removing the file but it has proven unreliable and tricky so we just do this for now.
+
+note: you can use `npm run unlock` and `npm run lock` to accomplish this.
+
 ### Update .npmrc
 
 save-exact=true
