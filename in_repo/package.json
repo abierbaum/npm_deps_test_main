@@ -18,7 +18,10 @@
 
       "preversion": "npm test",
     "version": "npm run build",
-      "postversion": "git push && git push --tags"
+      "postversion": "git push && git push --tags",
+
+    "lock": "npm shrinkwrap --dev",
+    "unlock": "npm run rimraf npm-shrinkwrap.json"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
