@@ -1,32 +1,60 @@
-## Prep for Git commit
+## Workflow
 
-Download modules without building them
-> rm -rf node_modules
-> npm install --ignore-scripts 
-> git add . && git commit -a   # Check in modules
+Suggested workflow is to update the .npmrc file to save exact versions.  Then when you want to update a version of a package, remove the shrinkwrap file, do your work, then re-wrap it.
 
-## Now rebuild the packages and find build files with git status
+It is possible to do this without removing the file but it has proven unreliable and tricky so we just do this for now.
 
-Build the modules
-> npm rebuild
+note: you can use `npm run unlock` and `npm run lock` to accomplish this.
 
-Show the files created by the build (there might not be any), add then to .gitignore
-> git status
+### Update .npmrc
 
+save-exact=true
+registry=http://yogi.priority5.com:9090/
 
-## Packages Changed (removed, updated, etc)
+### Lock
 
-Download modules without building them
-> rm -rf node_modules
-> npm install --ignore-scripts 
-> git status #   see removed modules
-> git add . && git commit -a   # Check in modules
+Note: we use an .npmrc file with save-exact=true to make install use exact versions.  Also note that this will update the checked out modules as well.
 
-## Now rebuild the packages and find build files with git status
+> npm shrinkwrap --dev
 
-Build the modules
-> npm rebuild
+### Unlock
 
-Show the files created by the build (there might not be any), add then to .gitignore
-> git status
+> rm npm-shrinkwrap.json
 
+Install and do things you want.
+
+## Updating dependencies (CLI)
+
+Use outdated to check which packages may need updated.  Then use
+npm install with --save (or --save-dev) to updated those packages.
+
+> npm install --save pkg@1.2.3
+
+Verify that this updated both package.json and npm-shrinkwrap.json.
+
+Similarly works for `npm uninstall`.
+
+## Verify
+
+Run shrinkwrap again to verify that we have the correct package versions
+
+> npm shrinkwrap --dev
+
+## Updating dependencies (package.json edit)
+
+Use outdated to check which package may need updated.  Then edit the package.json file to add a new one or update.
+
+Unlock
+> rm npm-shrinkwrap.json
+
+Install
+> npm install
+
+Lock
+> npm shrinkwrap --dev   # Add the shrinkwrap file back in
+
+## Future
+
+May want to use: https://github.com/uber/npm-shrinkwrap
+shrinking tarballs: https://github.com/JamieMason/shrinkpack
+Watch out for this bug: https://github.com/npm/npm/issues/6855
