@@ -1,32 +1,54 @@
-## Prep for Git commit
+## Workflow
 
-Download modules without building them
-> rm -rf node_modules
-> npm install --ignore-scripts 
-> git add . && git commit -a   # Check in modules
+### Update .npmrc
 
-## Now rebuild the packages and find build files with git status
+save-exact=true
+registry=http://yogi.priority5.com:9090/
 
-Build the modules
-> npm rebuild
+### Lock
 
-Show the files created by the build (there might not be any), add then to .gitignore
-> git status
+Note: we use an .npmrc file with save-exact=true to make install use exact versions.  Also note that this will update the checked out modules as well.
 
+> npm shrinkwrap --dev
 
-## Packages Changed (removed, updated, etc)
+### Unlock
 
-Download modules without building them
-> rm -rf node_modules
-> npm install --ignore-scripts 
-> git status #   see removed modules
-> git add . && git commit -a   # Check in modules
+> rm npm-shrinkwrap.json
 
-## Now rebuild the packages and find build files with git status
+Install and do things you want.
 
-Build the modules
-> npm rebuild
+## Updating dependencies (CLI)
 
-Show the files created by the build (there might not be any), add then to .gitignore
-> git status
+Use outdated to check which packages may need updated.  Then use
+npm install with --save (or --save-dev) to updated those packages.
 
+> npm install --save pkg@1.2.3
+
+Verify that this updated both package.json and npm-shrinkwrap.json.
+
+Similarly works for `npm uninstall`.
+
+## Verify
+
+Run shrinkwrap again to verify that we have the correct package versions
+
+> npm shrinkwrap --dev
+
+## Updating dependencies (package.json edit)
+
+Use outdated to check which package may need updated.  Then edit the package.json file to add a new one or update.
+
+Unlock
+> rm npm-shrinkwrap.json
+
+Install
+> npm install
+
+Lock
+> npm shrinkwrap --dev   # Add the shrinkwrap file back in
+
+## Future
+
+May want to use: https://github.com/uber/npm-shrinkwrap
+shrinking tarballs: https://github.com/JamieMason/shrinkpack
+Watch out for this bug: https://github.com/npm/npm/issues/6855
